@@ -1,11 +1,14 @@
 import React from 'react'
 import ListItem from '../ListItem'
 
-const List = (props) => {
+const List = ({
+  items = [],
+  onRemove = () => {}
+}) => {
   return (
     <ol>
-      {props.items.map(item => (
-        <ListItem item={item.item} key={item.id} />
+      {items.map(({item, id}) => (
+        <ListItem onRemove={onRemove} item={item} key={id} itemId={id}/>
       ))}
     </ol>
   )
