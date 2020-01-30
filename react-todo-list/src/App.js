@@ -9,11 +9,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       value: '',
-      listItems: [{ id: '827378923', item: 'Lavar louça' }],
+      listItems: [],
     };
   } 
 
   addItem(item) {
+    if (item === '') {
+      return
+    }
+    
     const newItem = {
       id: (new Date()).getTime(),
       item,
@@ -24,6 +28,13 @@ class App extends React.Component {
       listItems: [...this.state.listItems, newItem],
       value: ''
     })
+  }
+
+  removeItem(id) {
+    this.setState(prevState => ({
+      ...prevState,
+      listItems: prevState.listItems.filter(item => item.id !== id),
+    }));
   }
 
   changeValue(e) {
@@ -46,7 +57,7 @@ class App extends React.Component {
           addItem={this.addItem.bind(this)}
           changeValue={this.changeValue.bind(this)}
         />
-        <List items={listItems}/>
+        <List items={listItems} onRemove={this.removeItem.bind(this)}/>
       </div>
     );
   }
