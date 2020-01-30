@@ -3,12 +3,13 @@ import ListItem from '../ListItem'
 
 const List = ({
   items = [],
-  onRemove = () => {}
+  onRemove = () => {},
+  onEdit = () => {}
 }) => {
   return (
     <ol>
       {items.map(({item, id}) => (
-        <ListItem onRemove={onRemove} item={item} key={id} itemId={id}/>
+        <ListItem onRemove={onRemove} onEdit={onEdit} item={item} key={id} itemId={id}/>
       ))}
     </ol>
   )

@@ -10,11 +10,16 @@ class App extends React.Component {
     this.state = {
       value: '',
       listItems: [],
+      hasError: false,
     };
   } 
 
   addItem(item) {
     if (item === '') {
+      this.setState({
+        ...this.state,
+        hasError: true,
+      })
       return
     }
     
@@ -37,18 +42,27 @@ class App extends React.Component {
     }));
   }
 
+  editItem(id) {
+    
+  }
+
   changeValue(e) {
+    const { value } = e.target
+
     this.setState({
       ...this.state,
-      value: e.target.value
+      value,
+      hasError: false,
     })
   }
 
   render () {
     const {
+      hasError,
       listItems,
       value
     } = this.state;
+
 
     return (
       <div className="App">
@@ -56,6 +70,7 @@ class App extends React.Component {
           valueInput={value}
           addItem={this.addItem.bind(this)}
           changeValue={this.changeValue.bind(this)}
+          hasError={hasError}
         />
         <List items={listItems} onRemove={this.removeItem.bind(this)}/>
       </div>
