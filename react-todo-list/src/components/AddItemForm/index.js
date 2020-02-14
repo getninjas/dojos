@@ -11,14 +11,14 @@ const AddItemForm = ({
     <form onSubmit={
       e => {
         e.preventDefault()
-        
+
         addItem(valueInput)
       }
     }>
       <div>
-        <input value={valueInput} onChange={e => changeValue(e)} 
+        <input value={valueInput} onChange={e => changeValue(e)}
         type="text" placeholder={placeholder} />
-        {hasError ? (<span style={{ 'color': 'red', 'display': 'block' }}>Campo nao pode ser nulo</span>) : ''}
+        {hasError ? (<span style={{ 'color': 'red', 'display': 'block' }}>Campo não pode ser nulo</span>) : ''}
       </div>
     </form>
   )

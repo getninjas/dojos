@@ -12,7 +12,7 @@ class App extends React.Component {
       listItems: [],
       hasError: false,
     };
-  } 
+  }
 
   addItem(item) {
     if (item === '') {
@@ -22,7 +22,7 @@ class App extends React.Component {
       })
       return
     }
-    
+
     const newItem = {
       id: (new Date()).getTime(),
       item,
@@ -42,8 +42,16 @@ class App extends React.Component {
     }));
   }
 
-  editItem(id) {
-    
+  editItem(text, itemId) {
+    const { listItems } = this.state;
+
+    this.setState(prevState => listItems.map(item => {
+      if(item.id === itemId) {
+        item.item = text;
+      }
+
+      return item;
+    }))
   }
 
   changeValue(e) {
@@ -63,6 +71,8 @@ class App extends React.Component {
       value
     } = this.state;
 
+    console.log(listItems);
+
 
     return (
       <div className="App">
@@ -72,7 +82,7 @@ class App extends React.Component {
           changeValue={this.changeValue.bind(this)}
           hasError={hasError}
         />
-        <List items={listItems} onRemove={this.removeItem.bind(this)}/>
+        <List items={listItems} onRemove={this.removeItem.bind(this)} onEdit={this.editItem.bind(this)}/>
       </div>
     );
   }
