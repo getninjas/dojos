@@ -2,7 +2,7 @@ import React from 'react';
 import AddItemForm from './components/AddItemForm';
 import List from './components/List'
 
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -75,7 +75,7 @@ class App extends React.Component {
 
 
     return (
-      <div className="App">
+      <div className="App container">
         <AddItemForm
           valueInput={value}
           addItem={this.addItem.bind(this)}
