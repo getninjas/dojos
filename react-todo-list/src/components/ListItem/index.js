@@ -27,7 +27,20 @@ class ListItem extends Component {
   }
 
   handleCancel() {
-   this.setState({ editMode: false })
+    const {
+      itemId,
+      onRemove= () => {}
+    } = this.props;
+
+    const {
+      editMode
+    } = this.state;
+
+   if(editMode) {
+    this.setState({ editMode: false })
+   } else {
+     onRemove(itemId)
+   }
   }
 
   handleInputChange(event) {
@@ -35,13 +48,6 @@ class ListItem extends Component {
   }
 
   render() {
-    const {
-      item = '',
-      itemId = 0,
-      onRemove = () => {},
-      onEdit = () => {}
-    } = this.props;
-
     const { editMode, text } = this.state;
     const enableInput = editMode ? {} : { disabled: 'disabled' }
 
@@ -53,9 +59,8 @@ class ListItem extends Component {
           onChange={this.handleInputChange.bind(this)}
           {...enableInput}
         />
-        <button onClick={() => onRemove(itemId)}>Remover</button>
         <button onClick={this.handleEdit.bind(this)}>{editMode ? 'Salvar' : 'Editar'}</button>
-        <button onClick={this.handleCancel.bind(this)}>Cancelar</button>
+        <button onClick={this.handleCancel.bind(this)}>{editMode ? 'Cancelar' : 'Remover'}</button>
       </li>
     );
   }
