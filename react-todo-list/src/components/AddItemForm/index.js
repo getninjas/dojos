@@ -8,7 +8,7 @@ const AddItemForm = ({
   hasError = false,
 }) => {
   return (
-    <form onSubmit={
+    <form className="form__todo" onSubmit={
       e => {
         e.preventDefault()
 

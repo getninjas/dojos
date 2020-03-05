@@ -75,7 +75,12 @@ class App extends React.Component {
 
 
     return (
-      <div className="App container">
+      <div className="App">
+        <header className="header">
+          <div className="container">
+            <h1 className="header__title">To Do List</h1>
+          </div>
+        </header>
         <AddItemForm
           valueInput={value}
           addItem={this.addItem.bind(this)}
