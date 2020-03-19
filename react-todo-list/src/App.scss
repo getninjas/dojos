@@ -3,7 +3,6 @@ $color-second: #2F3F7E;
 $color-default: #575757;
 $color-shade-dark: #D4D4D4;
 $color-shade-light: #F3F3F3;
-
 $spacing-xxl: 148px;
 $spacing-xl: 64px;
 $spacing-l: 48px;
@@ -11,7 +10,17 @@ $spacing-m: 32px;
 $spacing-s: 16px;
 $spacing-xs: 12px;
 $spacing-xxs: 8px;
+$font-size-s: 16px;
+$font-size-m: 22px;
+$font-size-l: 42px;
+$font-size-xl: 92px;
 
+@import url('https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 .container {
   display: grid;
@@ -20,7 +29,7 @@ $spacing-xxs: 8px;
   max-width: 328px;
   margin: 0 auto;
 
-  @media screen and (min-width: 1120px) {
+  @media screen and (min-width: 960px) {
     column-gap: $spacing-m;
     max-width: 1120px;
   }
@@ -31,10 +40,42 @@ $spacing-xxs: 8px;
 
   &__title {
     color: $color-second;
+    font-family: 'DM Serif Display', serif;
+    font-size: $font-size-l;
+    font-weight: normal;
     grid-column: 1 / 13;
+
+
+    @media screen and (min-width: 960px) {
+      margin-top: $spacing-xxl;
+      font-size: $font-size-xl;
+      grid-column: 3 / 11;
+    }
   }
 }
 
-.form__todo {
-  grid-column: 3 / 11;
+.form {
+  &__todo {
+    grid-column: 3 / 11;
+  }
+
+  &__container {
+    margin-top: $spacing-xl;
+  }
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding-bottom: $spacing-xs;
+  border: 0 none;
+  border-bottom: 1px solid $color-shade-dark;
+
+  &__item {
+    &[placeholder] {
+      color: $color-default;
+      font-size: $font-size-m;
+      line-height: 24px;
+    }
+  }
 }

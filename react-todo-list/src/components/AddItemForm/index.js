@@ -16,7 +16,7 @@ const AddItemForm = ({
       }
     }>
       <div>
-        <input value={valueInput} onChange={e => changeValue(e)}
+        <input className="input input__item" value={valueInput} onChange={e => changeValue(e)}
         type="text" placeholder={placeholder} />
         {hasError ? (<span style={{ 'color': 'red', 'display': 'block' }}>Campo não pode ser nulo</span>) : ''}
       </div>

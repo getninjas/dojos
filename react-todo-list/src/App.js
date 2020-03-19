@@ -81,12 +81,15 @@ class App extends React.Component {
             <h1 className="header__title">To Do List</h1>
           </div>
         </header>
-        <AddItemForm
-          valueInput={value}
-          addItem={this.addItem.bind(this)}
-          changeValue={this.changeValue.bind(this)}
-          hasError={hasError}
-        />
+        <div className="container form__container">
+          <AddItemForm
+            valueInput={value}
+            addItem={this.addItem.bind(this)}
+            changeValue={this.changeValue.bind(this)}
+            hasError={hasError}
+            placeholder="Digite aqui uma tarefa"
+          />
+        </div>
         <List items={listItems} onRemove={this.removeItem.bind(this)} onEdit={this.editItem.bind(this)}/>
       </div>
     );
