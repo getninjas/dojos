@@ -71,6 +71,7 @@ body {
   padding-bottom: $spacing-xs;
   border: 0 none;
   border-bottom: 1px solid $color-shade-dark;
+  outline: none;
 
   &__item {
     &[placeholder] {
