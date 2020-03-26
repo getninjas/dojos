@@ -59,7 +59,14 @@ class ListItem extends Component {
           onChange={this.handleInputChange.bind(this)}
           {...enableInput}
         />
-        <button onClick={this.handleEdit.bind(this)}>{editMode ? 'Salvar' : 'Editar'}</button>
+
+        <button onClick={this.handleEdit.bind(this)}>
+          {
+            editMode 
+              ? (<img src="../images/check.svg" />)
+              : (<img src="../images/pencil.svg" />)
+          }
+        </button>
         <button onClick={this.handleCancel.bind(this)}>{editMode ? 'Cancelar' : 'Remover'}</button>
       </li>
     );
