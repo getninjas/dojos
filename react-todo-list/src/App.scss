@@ -80,10 +80,17 @@ body {
     }
 
     &--invalid {
+      border-bottom-color: $color-invalid;
+    }
+  }
+
+  &__message {
+    font-size: $font-size-s;
+    display: block;
+    margin-top: $spacing-xxs;
+
+    &--invalid {
       color: $color-invalid;
-      font-size: $font-size-s;
-      display: block;
-      margin-top: $spacing-xxs;
     }
   }
 }
