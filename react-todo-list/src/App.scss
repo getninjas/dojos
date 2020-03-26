@@ -79,6 +79,12 @@ body {
       line-height: 24px;
     }
 
+    &:hover,
+    &:focus,
+    &:active {
+      border-bottom-color: $color-primary;
+    }
+
     &--invalid {
       border-bottom-color: $color-invalid;
     }
