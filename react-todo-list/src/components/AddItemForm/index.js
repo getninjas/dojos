@@ -18,7 +18,7 @@ const AddItemForm = ({
       <div>
         <input className="input input__item" value={valueInput} onChange={e => changeValue(e)}
         type="text" placeholder={placeholder} />
-        {hasError ? (<span style={{ 'color': 'red', 'display': 'block' }}>Campo não pode ser nulo</span>) : ''}
+        {hasError ? (<span className="input__item--invalid" style={{ 'color': 'red', 'display': 'block' }}>Você não pode inserir uma tarefa vazia</span>) : ''}
       </div>
     </form>
   )
