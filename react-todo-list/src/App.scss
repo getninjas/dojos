@@ -3,6 +3,7 @@ $color-second: #2F3F7E;
 $color-default: #575757;
 $color-shade-dark: #D4D4D4;
 $color-shade-light: #F3F3F3;
+$color-invalid: #B40300;
 $spacing-xxl: 148px;
 $spacing-xl: 64px;
 $spacing-l: 48px;
@@ -79,8 +80,10 @@ body {
     }
 
     &--invalid {
-      color: 'red';
-      display: 'block';
+      color: $color-invalid;
+      font-size: $font-size-s;
+      display: block;
+      margin-top: $spacing-xxs;
     }
   }
 }
