@@ -60,14 +60,20 @@ class ListItem extends Component {
           {...enableInput}
         />
 
-        <button onClick={this.handleEdit.bind(this)}>
+        <button class="btn" onClick={this.handleEdit.bind(this)}>
           {
-            editMode 
+            editMode
               ? (<img src="../images/check.svg" />)
               : (<img src="../images/pencil.svg" />)
           }
         </button>
-        <button onClick={this.handleCancel.bind(this)}>{editMode ? 'Cancelar' : 'Remover'}</button>
+        <button class="btn" onClick={this.handleCancel.bind(this)}>
+          {
+            editMode
+            ? (<img src="../images/close.svg" />)
+            : (<img src="../images/trash.svg" />)
+          }
+          </button>
       </li>
     );
   }
