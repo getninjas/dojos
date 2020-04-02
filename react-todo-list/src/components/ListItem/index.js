@@ -52,8 +52,9 @@ class ListItem extends Component {
     const enableInput = editMode ? {} : { disabled: 'disabled' }
 
     return (
-      <li>
+      <li className="container">
         <input
+          className="input-item"
           type="text"
           value={text}
           onChange={this.handleInputChange.bind(this)}
