@@ -52,29 +52,31 @@ class ListItem extends Component {
     const enableInput = editMode ? {} : { disabled: 'disabled' }
 
     return (
-      <li className="container">
-        <input
-          className="input-item"
-          type="text"
-          value={text}
-          onChange={this.handleInputChange.bind(this)}
-          {...enableInput}
-        />
+      <li className="border">
+        <div>
+          <input
+            className="input-item"
+            type="text"
+            value={text}
+            onChange={this.handleInputChange.bind(this)}
+            {...enableInput}
+          />
 
-        <button class="btn" onClick={this.handleEdit.bind(this)}>
-          {
-            editMode
-              ? (<img src="../images/check.svg" />)
-              : (<img src="../images/pencil.svg" />)
-          }
-        </button>
-        <button class="btn" onClick={this.handleCancel.bind(this)}>
-          {
-            editMode
-            ? (<img src="../images/close.svg" />)
-            : (<img src="../images/trash.svg" />)
-          }
+          <button class="btn" onClick={this.handleEdit.bind(this)}>
+            {
+              editMode
+                ? (<img src="../images/check.svg" />)
+                : (<img src="../images/pencil.svg" />)
+            }
           </button>
+          <button class="btn" onClick={this.handleCancel.bind(this)}>
+            {
+              editMode
+              ? (<img src="../images/close.svg" />)
+              : (<img src="../images/trash.svg" />)
+            }
+            </button>
+        </div>
       </li>
     );
   }
