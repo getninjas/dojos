@@ -52,7 +52,7 @@ class ListItem extends Component {
     const enableInput = editMode ? {} : { disabled: 'disabled' }
 
     return (
-      <li className="border">
+      <li className="todo__item">
         <div>
           <input
             className="input-item"

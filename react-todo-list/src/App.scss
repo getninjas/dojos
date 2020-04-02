@@ -113,10 +113,17 @@ body {
 
 }
 
-.border {
-  background: red;
+.todo__items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  grid-column: 3 / 11;
+
+  .todo__item:nth-child(odd) {
+    background-color: $color-shade-light;
+  }
 }
 
-.todo__items {
-  grid-column: 3 / 11;
+.todo__item {
+  padding: $spacing-s;
 }

@@ -8,11 +8,11 @@ const List = ({
 }) => {
   return (
     <div className="container">
-    <ol className="todo__items">
-      {items.map(({item, id}) => (
-        <ListItem onRemove={onRemove} onEdit={onEdit} item={item} key={id} itemId={id}/>
-      ))}
-    </ol>
+      <ul className="todo__items">
+        {items.map(({item, id}) => (
+          <ListItem onRemove={onRemove} onEdit={onEdit} item={item} key={id} itemId={id}/>
+        ))}
+      </ul>
     </div>
   )
 }
