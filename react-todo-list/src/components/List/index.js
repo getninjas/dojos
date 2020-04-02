@@ -7,11 +7,13 @@ const List = ({
   onEdit = () => {}
 }) => {
   return (
-    <ol>
+    <div className="container">
+    <ol className="todo__items">
       {items.map(({item, id}) => (
         <ListItem onRemove={onRemove} onEdit={onEdit} item={item} key={id} itemId={id}/>
       ))}
     </ol>
+    </div>
   )
 }
 

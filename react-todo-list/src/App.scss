@@ -116,3 +116,7 @@ body {
 .border {
   background: red;
 }
+
+.todo__items {
+  grid-column: 3 / 11;
+}
