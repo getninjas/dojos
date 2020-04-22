@@ -4,20 +4,21 @@ const AddItemForm = ({
   addItem = () => {},
   placeholder = '',
   valueInput = '',
-  changeValue = () => {}
+  changeValue = () => {},
+  hasError = false,
 }) => {
   return (
-    <form onSubmit={
+    <form className="form__todo" onSubmit={
       e => {
         e.preventDefault()
-        
+
         addItem(valueInput)
       }
     }>
       <div>
-        <input value={valueInput} onChange={e => changeValue(e)} 
+        <input className={`input input__item ${hasError ? 'input__item--invalid' : ''}`} value={valueInput} onChange={e => changeValue(e)}
         type="text" placeholder={placeholder} />
-        <span style={{ 'color': 'red', 'display': 'block' }}>Campo nao pode ser nulo</span>
+        {hasError ? (<span className="input__message input__message--invalid">Você não pode inserir uma tarefa vazia</span>) : ''}
       </div>
     </form>
   )

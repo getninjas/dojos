@@ -2,7 +2,7 @@ import React from 'react';
 import AddItemForm from './components/AddItemForm';
 import List from './components/List'
 
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,14 +10,19 @@ class App extends React.Component {
     this.state = {
       value: '',
       listItems: [],
+      hasError: false,
     };
-  } 
+  }
 
   addItem(item) {
     if (item === '') {
+      this.setState({
+        ...this.state,
+        hasError: true,
+      })
       return
     }
-    
+
     const newItem = {
       id: (new Date()).getTime(),
       item,
@@ -37,27 +42,55 @@ class App extends React.Component {
     }));
   }
 
+  editItem(text, itemId) {
+    const { listItems } = this.state;
+
+    this.setState(prevState => listItems.map(item => {
+      if(item.id === itemId) {
+        item.item = text;
+      }
+
+      return item;
+    }))
+  }
+
   changeValue(e) {
+    const { value } = e.target
+
     this.setState({
       ...this.state,
-      value: e.target.value
+      value,
+      hasError: false,
     })
   }
 
   render () {
     const {
+      hasError,
       listItems,
       value
     } = this.state;
 
+    console.log(listItems);
+
+
     return (
       <div className="App">
-        <AddItemForm
-          valueInput={value}
-          addItem={this.addItem.bind(this)}
-          changeValue={this.changeValue.bind(this)}
-        />
-        <List items={listItems} onRemove={this.removeItem.bind(this)}/>
+        <header className="header">
+          <div className="container">
+            <h1 className="header__title">To Do List</h1>
+          </div>
+        </header>
+        <div className="container form__container">
+          <AddItemForm
+            valueInput={value}
+            addItem={this.addItem.bind(this)}
+            changeValue={this.changeValue.bind(this)}
+            hasError={hasError}
+            placeholder="Digite aqui uma tarefa"
+          />
+        </div>
+        <List items={listItems} onRemove={this.removeItem.bind(this)} onEdit={this.editItem.bind(this)}/>
       </div>
     );
   }
