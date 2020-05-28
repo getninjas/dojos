@@ -127,7 +127,12 @@ body {
 .todo__item {
   padding: $spacing-s;
 
-  .input-item {
+  &__container {
+    display: flex;
+  }
 
+  .input-item {
+    font-size: $font-size-s;
+    padding-bottom: 0;
   }
 }

@@ -53,7 +53,7 @@ class ListItem extends Component {
 
     return (
       <li className="todo__item">
-        <div>
+        <div className="todo__item__container">
           <input
             className="input input-item"
             type="text"
