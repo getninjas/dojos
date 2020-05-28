@@ -55,7 +55,7 @@ class ListItem extends Component {
       <li className="todo__item">
         <div>
           <input
-            className="input-item"
+            className="input input-item"
             type="text"
             value={text}
             onChange={this.handleInputChange.bind(this)}
