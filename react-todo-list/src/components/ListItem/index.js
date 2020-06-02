@@ -53,9 +53,13 @@ class ListItem extends Component {
 
     return (
       <li className="todo__item">
-        <div>
+        <div className="todo__item-container">
           <input
-            className="input-item"
+            className="todo__item-check"
+            type="checkbox"
+          />
+          <input
+            className="input input-item"
             type="text"
             value={text}
             onChange={this.handleInputChange.bind(this)}
